@@ -33,11 +33,6 @@ function listening() {
     console.log(`Running on localhost: ${port}`);
 }
 
-// const server = app.listen(port, () => {
-//     console.log(`The server is running on localhost: ${port}`)
-// }) 
-// setting up the server with a arrow function
-
 // GET route    
 app.get('/all', (req, res) => {
     res.send(projectData)
