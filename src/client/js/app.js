@@ -68,3 +68,5 @@ const retrieveData = async () =>{
     console.log('error', error);
   }
  }
+
+ export { getData, postData, retrieveData}
