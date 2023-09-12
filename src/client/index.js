@@ -1,9 +1,10 @@
-import { getData, postData, retrieveData} from './js/app.js'
+import { geoNamesFun } from './js/app.js'
 
 import './styles/style.scss'
 
 export {
-    getData,
-    postData,
-    retrieveData
+    // getData,
+    // postData,
+    // retrieveData
+    geoNamesFun
 }

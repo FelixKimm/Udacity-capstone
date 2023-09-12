@@ -9,27 +9,36 @@
  <body>
 <div id = "app">
   <div class ="holder headline">
-    Weather Journal App
+    Travel App
   </div>
   <div class ="holder zip">
-    <label for="zip">Enter Zipcode here</label>
-    <input type="text" id="zip" placeholder="enter zip code here">
+    <label for="zip">Enter city here</label>
+    <input type="text" id="zip" placeholder="enter a city name">
   </div>
   <div class ="holder feel">
-    <label for="feelings">How are you feeling today?</label>
+    <label for="feelings">type anything  </label>
     <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
     <button id="generate" type = "submit"> Generate </button>
   </div>
   <div class ="holder entry">
    <div class = "title">Most Recent Entry</div>
    <div id = "entryHolder">
-    <div id = "date"></div> 
-    <div id = "temp"></div>
-    <div id = "content"></div>
+    <div id = "alt"></div> 
+    <div id = "lng"></div>
+    <div id = "country-name"></div>
   </div>
   </div>
   </div>
 
+  <script>
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
+  </script> 
 
 <script type="text/javascript" src="main.js"></script></body>
 </html>
