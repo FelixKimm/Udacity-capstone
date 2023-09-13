@@ -37,6 +37,7 @@ async function weatherBitFun(cityName) {
   } catch (error) {
     console.log(error)
   }
+  
   // fetch(weatherBitAPI)
   //   .then( res => {
   //     return res.json()
@@ -47,6 +48,7 @@ async function weatherBitFun(cityName) {
   //   .catch( error => {
   //     console.log(error)
   //   })
+
 }
 
 weatherBitFun();
