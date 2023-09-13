@@ -20,14 +20,13 @@ async function geoNamesFun(cityName) {
   }
 }
 
-
 // WeatherBit
 const printWeather = document.getElementById('weather-bit');
 
-async function weatherBitFun(cityName) {
+async function weatherBitFun() {
   const weatherKey = 'bfb73eeaffcb4f1abf2bb159679f0130';
-  const weatherBitAPI = `https://api.weatherbit.io/v2.0/forecast/daily?city=${cityName},NC&key=${weatherKey}`;
-
+  const weatherBitAPI = 'https://api.weatherbit.io/v2.0/forecast/daily?' + `lat=${latitude}&lon=${longitude}&key=` +weatherKey;
+  
   try {
     const res = await fetch(weatherBitAPI);
     const data = await res.json();
@@ -37,18 +36,6 @@ async function weatherBitFun(cityName) {
   } catch (error) {
     console.log(error)
   }
-  
-  // fetch(weatherBitAPI)
-  //   .then( res => {
-  //     return res.json()
-  //   })
-  //   .then( data => {
-  //     console.log(data)
-  //   })
-  //   .catch( error => {
-  //     console.log(error)
-  //   })
-
 }
 
 weatherBitFun();
@@ -57,6 +44,7 @@ weatherBitFun();
 document.getElementById('generate').addEventListener('click', () => {
   const cityName = document.getElementById('zip').value;
   geoNamesFun(cityName);
+  weatherBitFun()
 });
 
 console.log("teste4")
