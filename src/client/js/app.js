@@ -15,6 +15,8 @@ async function geoNamesFun(cityName) {
     document.getElementById('lng').innerHTML = `Longitude: ${longitude}`;
     document.getElementById('country-name').innerHTML = `Country: ${countryName}`;
 
+    return { latitude, longitude };
+
   } catch (error) {
     console.log(error);
   }
@@ -23,30 +25,38 @@ async function geoNamesFun(cityName) {
 // WeatherBit
 const printWeather = document.getElementById('weather-bit');
 
-async function weatherBitFun() {
-  const weatherKey = 'bfb73eeaffcb4f1abf2bb159679f0130';
-  const weatherBitAPI = 'https://api.weatherbit.io/v2.0/forecast/daily?' + `lat=${latitude}&lon=${longitude}&key=` +weatherKey;
-  
-  try {
-    const res = await fetch(weatherBitAPI);
-    const data = await res.json();
+async function weatherBitFun(latitude, longitude, startDate, endDate) {
+  if (latitude && longitude) {
+    const weatherKey = 'bfb73eeaffcb4f1abf2bb159679f0130';
+    const weatherBitAPI = 'https://api.weatherbit.io/v2.0/forecast/daily?' + `start_date=${startDate}` + `&end_date=${endDate}` + `&lat=${latitude}&lon=${longitude}&key=` +weatherKey;
+    
+    try {
+      const res = await fetch(weatherBitAPI);
+      const data = await res.json();
 
-    console.log(data)
+      console.log(data)
+      printWeather.innerHTML = 'Max Temperature: ' + data.data[0].max_temp;
 
-  } catch (error) {
-    console.log(error)
+    } catch (error) {
+      console.log(error);
+    }
+  } else {
+    console.log('Latitude and Longitude are not defiened yet, enter a city name first')
   }
 }
 
 weatherBitFun();
 
 // Event Listener
-document.getElementById('generate').addEventListener('click', () => {
-  const cityName = document.getElementById('zip').value;
-  geoNamesFun(cityName);
-  weatherBitFun()
-});
+document.getElementById('generate').addEventListener('click', async () => {
 
-console.log("teste4")
+  const cityName = document.getElementById('zip').value;
+  const { latitude, longitude } = await geoNamesFun(cityName);
+  
+  let startDate = document.getElementById('calendar-start').value;
+  let endDate = document.getElementById('calendar-end').value;
+
+  weatherBitFun(latitude, longitude, startDate, endDate);
+});
 
 export { geoNamesFun, weatherBitFun }

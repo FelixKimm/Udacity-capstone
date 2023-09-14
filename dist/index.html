@@ -18,7 +18,7 @@
   <div class ="holder feel">
     <label for="feelings">type anything  </label>
     <textarea class= "myInput" id="feelings" placeholder="Enter your feelings here" rows="9" cols="50"></textarea>
-    <button id="generate" type = "submit"> Generate </button>
+    <button id="generate" type = "submit"> Save Trip </button>
   </div>
   <div class ="holder entry">
    <div class = "title">Most Recent Entry</div>
@@ -32,13 +32,13 @@
   </div>
 
   <script>
-    // Check that service workers are supported
-    if ('serviceWorker' in navigator) {
-        // Use the window load event to keep the page load performant
-        window.addEventListener('load', () => {
-            navigator.serviceWorker.register('/service-worker.js');
-        });
-    }
+    // // Check that service workers are supported
+    // if ('serviceWorker' in navigator) {
+    //     // Use the window load event to keep the page load performant
+    //     window.addEventListener('load', () => {
+    //         navigator.serviceWorker.register('/service-worker.js');
+    //     });
+    // }
   </script> 
 
 <script type="text/javascript" src="main.js"></script></body>

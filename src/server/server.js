@@ -36,11 +36,12 @@ function listening() {
 // GET route    
 app.get('/all', (req, res) => {
     res.send(projectData)
+    console.log('success')
 })
 
-// POST route
+// // POST route
 
-app.post('/addData', (req, res) => {
-    projectData = req.body;
-	res.send(projectData);
-})
+// app.post('/addData', (req, res) => {
+//     projectData = req.body;
+// 	res.send(projectData);
+// })
