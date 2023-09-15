@@ -1,11 +1,34 @@
-# Weather-Journal App Project
+# Udacity Travel App Capstone project
 
-## Overview
-This project requires you to create an asynchronous web app that uses Web API and user data to dynamically update the UI. 
+## How to start the project:
 
-## Instructions
-This will require modifying the `server.js` file and the `website/app.js` file. You can see `index.html` for element references, and once you are finished with the project steps, you can use `style.css` to style your application to customized perfection.
+### Dev mode
+```
+`npm run build-dev` to start the dev server in localhost 8080
+```
 
-## Extras
-If you are interested in testing your code as you go, you can use `tests.js` as a template for writing and running some basic tests for your code.
-# Udacity-capstone
+### Production mode
+```
+`npm run build-prod` Create the dist folder
+```
+
+### Start the server
+```
+`npm run start` to start the server in localhost 8050
+```
+
+### Run the test
+```
+`npm run test`
+```
+
+## API
+
+### GeonNames
+http://www.geonames.org/export/web-services.html
+
+### WeatherBit
+https://www.weatherbit.io/api
+
+### Pixabay
+https://pixabay.com/api/docs/
