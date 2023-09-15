@@ -35,7 +35,7 @@ async function weatherBitFun(latitude, longitude, startDate, endDate) {
       const data = await res.json();
 
       console.log(data)
-      printWeather.innerHTML = 'Max Temperature of departure day: ' + data.data[0].max_temp + '<br>Min Temperature of departure day: ' + data.data[0].min_temp;
+      printWeather.innerHTML = 'Max Temperature of departure day: ' + data.data[0].max_temp + '<br>Min Temperature of departure day: ' + data.data[0].min_temp + `<br>Start Date: ${startDate}` + `<br>End Date: ${endDate}`;
 
     } catch (error) {
       console.log(error);
@@ -45,7 +45,7 @@ async function weatherBitFun(latitude, longitude, startDate, endDate) {
   }
 }
 
-// pixabay
+// Pixabay
 
 async function pixabayFun(cityName) {
   const pixabayKey = '39387791-48323a0dae01b238a51127799';
@@ -59,7 +59,7 @@ async function pixabayFun(cityName) {
     console.log(data)
 
     if (data.hits && data.hits.length > 0) {
-      const printImg = data.hits;
+      let printImg = data.hits;
       console.log(printImg);
 
       const putPixabayImage = document.getElementById('image-place');
@@ -77,17 +77,27 @@ async function pixabayFun(cityName) {
 // Event Listener
 document.getElementById('generate').addEventListener('click', async () => {
 
-  const cityName = document.getElementById('zip').value;
-  const { latitude, longitude } = await geoNamesFun(cityName);
-  
+  const cityName = document.getElementById('city-name').value;
   let startDate = document.getElementById('calendar-start').value;
   let endDate = document.getElementById('calendar-end').value;
+  
+  if ( !cityName && !startDate && !endDate) {
+    alert('Please enter every input (City name, start date and end date)')
+    return
+  }
+  
+  const { latitude, longitude } = await geoNamesFun(cityName);
 
   weatherBitFun(latitude, longitude, startDate, endDate);
 
   document.getElementById('image-place').style.display = 'block';
 
   pixabayFun(cityName);
+
+  let differenceTime = new Date(endDate) - new Date(startDate);
+  let differenceInDays = differenceTime / (1000 * 3600 * 24);
+
+  document.getElementById('trip-duration').innerHTML = `Trip duration: ${differenceInDays} days`;
 });
 
 export { geoNamesFun, weatherBitFun, pixabayFun }

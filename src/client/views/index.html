@@ -12,34 +12,36 @@
     Travel App
   </div>
   <div class ="holder zip">
-    <label for="zip">Enter city here</label>
-    <input type="text" id="zip" placeholder="enter a city name">
-  </div>
-  <div class ="holder feel">
+    <label for="city-name">Enter city here</label>
+    <input type="text" id="city-name" placeholder="enter a city name">
     <input type="date" name="start-trip" id="calendar-start" class="calendar">
     <input type="date" name="end-trip" id="calendar-end" class="calendar">
+  </div>
+  <div class ="holder feel">
     <button id="generate" type = "submit"> Save Trip </button>
   </div>
   <div class ="holder entry">
    <div class = "title">Most Recent Entry</div>
-   <div id = "entryHolder">
-    <div id = "alt"></div> 
-    <div id = "lng"></div>
-    <div id = "country-name"></div>
+   <div id="entryHolder">
+    <div id="alt"></div> 
+    <div id="lng"></div>
+    <div id="country-name"></div>
     <div id="weather-bit"></div>
+    <div id="trip-duration"></div>
     <img src="" alt="Image from the city, generated from pixabay" id="image-place" style="display: none">
   </div>
+
   </div>
   </div>
 
   <script>
-    // // Check that service workers are supported
-    // if ('serviceWorker' in navigator) {
-    //     // Use the window load event to keep the page load performant
-    //     window.addEventListener('load', () => {
-    //         navigator.serviceWorker.register('/service-worker.js');
-    //     });
-    // }
+    // Check that service workers are supported
+    if ('serviceWorker' in navigator) {
+        // Use the window load event to keep the page load performant
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('/service-worker.js');
+        });
+    }
   </script> 
 
 </body>

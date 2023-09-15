@@ -23,7 +23,7 @@ app.use(cors());
 // Initialize the main project folder
 app.use(express.static('./dist'));
 
-const port = 8001;
+const port = 8050;
 
 // Spin up the server
 const server = app.listen(port, listening);

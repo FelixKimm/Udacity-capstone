@@ -1,6 +1,9 @@
 body{
     background: #fffff8;
     font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 #app{
@@ -20,7 +23,11 @@ body{
 }
 
 .holder{
-
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
 }
 
 .entry{
