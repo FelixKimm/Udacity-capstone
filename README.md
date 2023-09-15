@@ -2,6 +2,11 @@
 
 ## How to start the project:
 
+### Install
+```
+`npm install``
+```
+
 ### Dev mode
 ```
 `npm run build-dev` to start the dev server in localhost 8080
